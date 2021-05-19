@@ -42,7 +42,7 @@ client.on("ready", async () => {
 
     console.log(`${client.user.username} is ingelogd en online!`);
 
-
+ 
 });
 
 client.on("message", async message => {
