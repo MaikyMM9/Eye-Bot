@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 const fs = require("fs");
-const canvaCord = require("canvaCord")
+// const canvaCord = require("canvaCord")
 
 module.exports.run = async(client, message, args) => {
 
