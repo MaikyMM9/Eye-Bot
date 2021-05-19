@@ -8,6 +8,7 @@ const fs = require("fs");
 
 
 const client = new discord.Client();
+client.login(process.env.token);
 client.commands = new discord.Collection();
 
 fs.readdir("./commands/", (err, files) => {
@@ -36,7 +37,7 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 
-client.login(process.env.token);
+
 
 client.on("ready", async () => {
 
