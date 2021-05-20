@@ -114,7 +114,7 @@ client.on("message", async message => {
 
             message.delete();
 
-            var inviteEmbed = new.discord.MessageEmbed()
+            var inviteEmbed = new discord.MessageEmbed()
                 .setTitle("Een gebruiker heeft gescholden!")
                 .setColor("#470191")
                 .setFooter(message.member.displayName)
