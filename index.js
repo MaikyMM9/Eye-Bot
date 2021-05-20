@@ -121,7 +121,7 @@ client.on("message", async message => {
                 .setTimestamp()
                 .setDescription(`${message.author} Heeft een invite gestuurd!`)
                 .addField("In:", message.channel)
-                .addField("Gedetecteerde trigger bericht:", theInvite);
+                .addField("Gedetecteerde trigger bericht:", message.content);
                 
 
                 message.author.send(`Wil je in vervolg niet een invite sturen in de **${message.guild.name}** server?`)
