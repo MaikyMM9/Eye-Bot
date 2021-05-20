@@ -54,16 +54,18 @@ client.on("message", async message => {
 
     var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
 
+    var discordInvite = JSON.parse(fs.readFileSync("./data/discordInviteFiltering.json"))
+
     var logChannel = message.member.guild.channels.cache.find(channels => channels.name === "staff-logs")
 
     var msg = message.content.toLowerCase();
 
 
-//     if (command === `Hey eye`)
+    //     if (command === `Hey eye`)
 
-// if (message.member.name == Maiky)
+    // if (message.member.name == Maiky)
 
-//         return message.channel.send("Hallo!")
+    //         return message.channel.send("Hallo!")
 
 
 
@@ -101,6 +103,60 @@ client.on("message", async message => {
 
 
     }
+
+
+    for (let a = 0; a < discordInvite["invites"].length; a++) {
+
+        var theSwearWord = discordInvite["invites"]
+        var theInvite = discordInvite["invites"][a]
+
+        if (msg.includes(discordInvite["invites"][a])) {
+
+            message.delete();
+
+            var inviteEmbed = new.discord.MessageEmbed()
+                .setTitle("Een gebruiker heeft gescholden!")
+                .setColor("#470191")
+                .setFooter(message.member.displayName)
+                .setTimestamp()
+                .setDescription(`${message.author} Heeft een invite gestuurd!`)
+                .addField("In:", message.channel)
+                .addField("Gedetecteerde trigger bericht:", theInvite);
+                
+
+                message.author.send(`Wil je in vervolg niet een invite sturen in de **${message.guild.name}** server?`)
+
+
+
+                return message.reply("Het sturen van invites is niet toegestaan!").then(msg => msg.delete({ timeout: 3000 })).then(logChannel.send(inviteEmbed));
+    
+
+
+
+
+
+
+
+
+
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
