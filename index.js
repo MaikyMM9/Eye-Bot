@@ -54,7 +54,7 @@ client.on("message", async message => {
 
     var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
 
-    var discordInvite = JSON.parse(fs.readFileSync("./data/discordInviteFiltering.json"))
+    var discordLink = JSON.parse(fs.readFileSync("./data/discordLinkFiltering.json"))
 
     var logChannel = message.member.guild.channels.cache.find(channels => channels.name === "staff-logs")
 
@@ -105,30 +105,30 @@ client.on("message", async message => {
     }
 
 
-    for (let a = 0; a < discordInvite["invites"].length; a++) {
+    for (let a = 0; a < discordLink["Links"].length; a++) {
 
-        var theSwearWord = discordInvite["invites"]
-        var theInvite = discordInvite["invites"][a]
 
-        if (msg.includes(discordInvite["invites"][a])) {
+
+
+        if (msg.includes(discordLink["Links"][a])) {
 
             message.delete();
 
-            var inviteEmbed = new discord.MessageEmbed()
-                .setTitle("Een gebruiker heeft gescholden!")
+            var linkEmbed = new discord.MessageEmbed()
+                .setTitle("Een gebruiker heeft een link gestuurd!")
                 .setColor("#470191")
                 .setFooter(message.member.displayName)
                 .setTimestamp()
-                .setDescription(`${message.author} Heeft een invite gestuurd!`)
+                .setDescription(`${message.author} Heeft een link gestuurd!`)
                 .addField("In:", message.channel)
                 .addField("Gedetecteerde trigger bericht:", message.content);
                 
 
-                message.author.send(`Wil je in vervolg niet een invite sturen in de **${message.guild.name}** server?`)
+                message.author.send(`Wil je in vervolg niet een link sturen in de **${message.guild.name}** server?`)
 
 
 
-                return message.reply("Het sturen van invites is niet toegestaan!").then(msg => msg.delete({ timeout: 3000 })).then(logChannel.send(inviteEmbed));
+                return message.reply("Het sturen van links is niet toegestaan!").then(msg => msg.delete({ timeout: 3000 })).then(logChannel.send(linkEmbed));
     
 
 
