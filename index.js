@@ -43,7 +43,7 @@ client.on("ready", async () => {
 
     console.log(`${client.user.username} is ingelogd en online!`);
 
- 
+
 });
 
 client.on("message", async message => {
@@ -57,6 +57,17 @@ client.on("message", async message => {
     var logChannel = message.member.guild.channels.cache.find(channels => channels.name === "staff-logs")
 
     var msg = message.content.toLowerCase();
+
+
+//     if (command === `Hey eye`)
+
+// if (message.member.name == Maiky)
+
+//         return message.channel.send("Hallo!")
+
+
+
+
 
 
 
@@ -143,20 +154,20 @@ function RandomXp(message) {
     var levelUser = levelFile[idUser].level;
     var xpUser = levelFile[idUser].xp;
 
-var nextLevelXp = levelUser * 300;
+    var nextLevelXp = levelUser * 300;
 
-if(nextLevelXp == 0) nextLevelXp = 100;
+    if (nextLevelXp == 0) nextLevelXp = 100;
 
-if(xpUser >= nextLevelXp){
-levelFile[idUser].level += 1;
+    if (xpUser >= nextLevelXp) {
+        levelFile[idUser].level += 1;
 
-fs.writeFile("./data/levels.json", JSON.stringify(levelFile), err =>{
+        fs.writeFile("./data/levels.json", JSON.stringify(levelFile), err => {
 
-    if(err) console.log(err);
-});
+            if (err) console.log(err);
+        });
 
 
-}
+    }
 
 
 }
