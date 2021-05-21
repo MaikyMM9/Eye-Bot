@@ -77,7 +77,7 @@ client.on("message", async message => {
 
         if(messageDeleted.author.bot) return;
         
-        var messageContent = messageDeleted.messageContent;
+        var messageContent = messageDeleted.content;
         if(!messageContent) messageContent = "Er is geen tekst gevonden";
         
         var response = `Bericht: ${messageContent} is verwijderd uit ${messageDeleted.channel}`
