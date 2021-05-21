@@ -22,7 +22,7 @@ module.exports.run = async (client, message, args) => {
     var aanvraagEmbed = new discord.MessageEmbed()
         .setTitle("Solicitatie aanvraag")
         .setDescription("Iemand heeft een solicitatie achtergelaten")
-        .addField("De persoon:", message.author)
+        .addField("De persoon:", sollicitant)
         .addField("Het motivatie bericht:", motievatieBericht)
         .setTimestamp()
 
