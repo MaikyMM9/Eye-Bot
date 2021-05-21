@@ -69,8 +69,6 @@ client.on("message", async message => {
 
     var discordLink = JSON.parse(fs.readFileSync("./data/discordLinkFiltering.json"))
 
-    var logChannel = message.member.guild.channels.cache.find(channels => channels.name === "staff-logs")
-
     var msg = message.content.toLowerCase();
 
     client.on("messageDelete", messageDeleted =>{
@@ -87,8 +85,9 @@ client.on("message", async message => {
         .setAuthor(`${messageDeleted.author.tag}`, messageDeleted.author.avatarURL({size: 4096}))
         .addField("Het verwijderde bericht:", messageContent)
         
-        
-        logChannel.send(deletedEmbed)
+        var logChannel = message.member.guild.channels.cache.find(channels => channels.name === "staff-logs")
+
+        logChannel.send(deletedEmbed);
         
         });
 
