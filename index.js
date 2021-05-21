@@ -112,6 +112,7 @@ client.on("message", async message => {
                 .setDescription(`${message.author} was aan het schelden!`)
                 .addField("In:", message.channel)
                 .addField("Het scheldwoord:", theSwearWord)
+                .addField("Gevonden in dit bericht:", message.content)
 
                 var logChannel = client.channels.cache.find(channels => channels.name === "staff-logs")
 
