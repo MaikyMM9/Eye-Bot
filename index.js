@@ -49,6 +49,8 @@ client.on("ready", async () => {
 
 });
 
+var logChannel = message.member.guild.channels.cache.find(channels => channels.name === "staff-logs")
+
 client.on("messageDelete", messageDeleted =>{
 
 if(messageDeleted.author.bot) return;
@@ -63,7 +65,7 @@ var deletedEmbed = new discord.MessageEmbed()
 .setAuthor(`${messageDeleted.author.tag}`, messageDeleted.author.avatarURL({size: 4096}))
 .addField("Het verwijderde bericht:", messageContent)
 
-var logChannel = message.member.guild.channels.cache.find(channels => channels.name === "staff-logs")
+
 logChannel.send(deletedEmbed)
 
 });
