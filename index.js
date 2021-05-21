@@ -171,11 +171,6 @@ client.on("message", async message => {
 
 
 
-
-
-
-
-
     var prefix = botConfig.prefix;
 
     var messageArray = message.content.split(" ");
