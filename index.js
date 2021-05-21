@@ -58,7 +58,7 @@ client.on("messageDelete", messageDeleted =>{
     .setTimestamp()
     .setTitle("Er is een bericht verwijderd")
     .setDescription(`Er is een bericht verwijderd in: ${message.channel}`)
-    .setAuthor(`${messageDeleted.author.tag}`, messageDeleted.author.avatarURL({size: 4096}))
+    .setAuthor(`Door: ${messageDeleted.author.tag}`, messageDeleted.author.avatarURL({size: 4096}))
     .addField("Het verwijderde bericht:", messageContent);
     
     var logChannel = client.channels.cache.find(channels => channels.name === "staff-logs")
