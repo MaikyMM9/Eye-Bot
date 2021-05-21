@@ -29,7 +29,7 @@ module.exports.run = async (client, message, args) => {
 
         logChannel.send(aanvraagEmbed).then(async msg => {
 
-            var emoji = await promptMessage(msg, message.author, ["✅", "❌"]);
+            var emoji = await promptMessage(msg, message.author ["✅", "❌"]);
     
             if (emoji === "✅") {
     
@@ -73,6 +73,22 @@ module.exports.run = async (client, message, args) => {
     
         });
     
+
+
+}
+
+
+async function promptMessage(message, author, reactions) {
+
+  
+    for (const reaction of reactions) {
+        await message.react(reaction);
+    }
+
+    var filter = (reaction, user) => reactions.includes(reaction.emoji.name) && user.id === author.id;
+    return message.awaitReactions(filter, { max: 1,}).then(collected => collected.first() && collected.first().emoji.name);
+
+
 
 
 }
