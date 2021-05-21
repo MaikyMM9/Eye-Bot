@@ -46,7 +46,10 @@ client.on("ready", async () => {
 
 client.on("messageDelete", messageDeleted =>{
 
+setTimeout(1000);
+
     if(messageDeleted.author.bot) return;
+    
     
     var messageContent = messageDeleted.content;
     if(!messageContent) messageContent = "Er is geen tekst gevonden";
