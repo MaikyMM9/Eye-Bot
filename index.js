@@ -153,7 +153,7 @@ client.on("message", async message => {
                 
 
                 message.author.send(`Wil je in vervolg niet een link sturen in de **${message.guild.name}** server?`)
-
+                var logChannel = client.channels.cache.find(channels => channels.name === "staff-logs")
 
 
                 return message.reply("Het sturen van links is niet toegestaan!").then(msg => msg.delete({ timeout: 3000 })).then(logChannel.send(linkEmbed));
