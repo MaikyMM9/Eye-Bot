@@ -26,8 +26,7 @@ module.exports.run = async (client, message, args) => {
     if (!aankondigingChannel) return message.author.send("Geen kanaal gevonden!")
 
     aankondigingChannel.send(`${role1}`)
-    aankondigingChannel.send(aankondigingEmbed).then(message.react(':white_check_mark:'))
-  
+    aankondigingChannel.send(aankondigingEmbed).then(message.react('✅'));
 
 
 
