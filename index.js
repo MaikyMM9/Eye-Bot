@@ -47,6 +47,14 @@ client.on("ready", async () => {
 
 client.on("messageDelete", messageDeleted =>{
 
+    var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
+
+    var discordLink = JSON.parse(fs.readFileSync("./data/discordLinkFiltering.json"))
+
+    var msg = message.content.toLowerCase();
+
+    if (!msg.includes(swearWords["vloekwoorden"][i])) {
+
     if(messageDeleted.author.bot) return;
     
     var messageContent = messageDeleted.content;
@@ -66,7 +74,7 @@ client.on("messageDelete", messageDeleted =>{
     
    logChannel.send(deletedEmbed)   
     
-    });
+    }});
 
 
 
