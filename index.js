@@ -46,6 +46,10 @@ client.on("ready", async () => {
 
 client.on("messageDelete", messageDeleted =>{
 
+    setTimeout(function(){ 
+        
+     }, 2000);
+
     if(messageDeleted.author.bot) return;
     
     var messageContent = messageDeleted.content;
@@ -100,6 +104,10 @@ client.on("message", async message => {
         var theSwearWord = swearWords["vloekwoorden"][i]
 
         if (msg.includes(swearWords["vloekwoorden"][i])) {
+
+            setTimeout(function(){ 
+                
+             }, 1000);
 
             message.delete();
 
