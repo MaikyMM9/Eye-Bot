@@ -1,6 +1,6 @@
 const discord = require("discord.js")
 
-module.exports.run = async (client, message, arguments) => {
+module.exports.run = async (client, message, args) => {
 
     message.delete();
 
@@ -8,7 +8,7 @@ module.exports.run = async (client, message, arguments) => {
 
     var role1 = message.guild.roles.cache.find(r => r.id === "843564244821344283");
 
-    var aankondiging = arguments.join(" ")
+    var aankondiging = args.join(" ")
 
     var aankondigingEmbed = new discord.MessageEmbed()
         .setTitle("Aankondiging")
