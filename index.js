@@ -39,12 +39,41 @@ fs.readdir("./commands/", (err, files) => {
 
 
 
+
+
+
 client.on("ready", async () => {
 
     console.log(`${client.user.username} is ingelogd en online!`);
 
 
 });
+
+client.on("messageDelete", messageDeleted =>{
+
+if(messageDeleted.author.bot) return;
+
+var messageContent = messageDeleted.messageContent;
+if(!messageContent) messageContent = "Er is geen tekst gevonden";
+
+var response = `Bericht: ${messageContent} is verwijderd uit ${messageDeleted.channel}`
+
+var deletedEmbed = new discord.MessageEmbed()
+.setTitle("Er is een bericht verwijderd")
+.setAuthor(`${messageDeleted.author.tag}`, messageDeleted.author.avatarURL({size: 4096}))
+.addField("Het verwijderde bericht:", messageContent)
+
+
+logChannel.send(deletedEmbed)
+
+});
+
+
+
+
+
+
+
 
 client.on("message", async message => {
 
