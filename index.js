@@ -44,32 +44,7 @@ client.on("ready", async () => {
 
 });
 
-client.on("messageDelete", messageDeleted =>{
 
-    setTimeout(function(){ 
-        
-     }, 2000);
-
-    if(messageDeleted.author.bot) return;
-    
-    var messageContent = messageDeleted.content;
-    if(!messageContent) messageContent = "Er is geen tekst gevonden";
-    
-    var response = `Bericht: ${messageContent} is verwijderd uit ${messageDeleted.channel}`
-    
-    var deletedEmbed = new discord.MessageEmbed()
-    .setColor("Red")
-    .setTimestamp()
-    .setTitle("Er is een bericht verwijderd")
-    .setDescription(`Er is een bericht verwijderd in: ${messageDeleted.channel}`)
-    .setAuthor(`Door: ${messageDeleted.author.tag}`, messageDeleted.author.avatarURL({size: 4096}))
-    .addField("Het verwijderde bericht:", messageContent);
-    
-    var logChannel = client.channels.cache.find(channels => channels.name === "staff-logs")
-    
-   logChannel.send(deletedEmbed)   
-    
-    });
 
 
 
@@ -95,19 +70,12 @@ client.on("message", async message => {
 
 
 
-
-
-
-
     for (let i = 0; i < swearWords["vloekwoorden"].length; i++) {
 
         var theSwearWord = swearWords["vloekwoorden"][i]
 
         if (msg.includes(swearWords["vloekwoorden"][i])) {
-
-            setTimeout(function(){ 
-                
-             }, 1000);
+            
 
             message.delete();
 
@@ -211,6 +179,31 @@ client.on("message", async message => {
         return message.channel.send("Hallo!")
 
 });
+
+client.on("messageDelete", messageDeleted =>{
+
+    if(messageDeleted.author.bot) return;
+    
+    var messageContent = messageDeleted.content;
+    if(!messageContent) messageContent = "Er is geen tekst gevonden";
+    
+    var response = `Bericht: ${messageContent} is verwijderd uit ${messageDeleted.channel}`
+    
+    var deletedEmbed = new discord.MessageEmbed()
+    .setColor("Red")
+    .setTimestamp()
+    .setTitle("Er is een bericht verwijderd")
+    .setDescription(`Er is een bericht verwijderd in: ${messageDeleted.channel}`)
+    .setAuthor(`Door: ${messageDeleted.author.tag}`, messageDeleted.author.avatarURL({size: 4096}))
+    .addField("Het verwijderde bericht:", messageContent);
+    
+    var logChannel = client.channels.cache.find(channels => channels.name === "staff-logs")
+    
+   logChannel.send(deletedEmbed)   
+    
+    });
+
+
 
 
 
