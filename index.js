@@ -86,9 +86,9 @@ client.on("message", async message => {
         .addField("Het verwijderde bericht:", messageContent)
         
         var logChannel = message.member.guild.channels.cache.find(channels => channels.name === "staff-logs")
-        if(messageContent.deleted){
-        return logChannel.send(deletedEmbed)
-        }
+        
+       logChannel.send(deletedEmbed).then();
+        
         
         });
 
