@@ -49,7 +49,7 @@ client.on("ready", async () => {
 
 });
 
-var logChannel = client.guild.channels.cache.find(channels => channels.name === "staff-logs")
+var logChannel = client.channels.get("843868118886907934")
 
 client.on("messageDelete", messageDeleted =>{
 
