@@ -37,24 +37,12 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 
-
-
-
-
-
 client.on("ready", async () => {
 
     console.log(`${client.user.username} is ingelogd en online!`);
 
 
 });
-
-
-
-
-
-
-
 
 
 
@@ -161,27 +149,6 @@ client.on("message", async message => {
 
 
 
-    client.on("messageDelete", messageDeleted =>{
-
-        if(messageDeleted.author.bot) return;
-        
-        var messageContent = messageDeleted.content;
-        if(!messageContent) messageContent = "Er is geen tekst gevonden";
-        
-        var response = `Bericht: ${messageContent} is verwijderd uit ${messageDeleted.channel}`
-        
-        var deletedEmbed = new discord.MessageEmbed()
-        .setTitle("Er is een bericht verwijderd")
-        .setAuthor(`${messageDeleted.author.tag}`, messageDeleted.author.avatarURL({size: 4096}))
-        .addField("Het verwijderde bericht:", messageContent)
-        
-        var logChannel = message.member.guild.channels.cache.find(channels => channels.name === "staff-logs")
-        
-       logChannel.send(deletedEmbed)   
-        
-        });
-
-
 
 
 
@@ -214,8 +181,6 @@ client.on("message", async message => {
         return message.channel.send("Hallo!")
 
 });
-
-
 
 
 function RandomXp(message) {
