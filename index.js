@@ -57,7 +57,7 @@ client.on("messageDelete", messageDeleted =>{
     .setColor("Red")
     .setTimestamp()
     .setTitle("Er is een bericht verwijderd")
-    .setDescription(`Er is een bericht verwijderd in: ${message.channel}`)
+    .setDescription(`Er is een bericht verwijderd in: ${messageDeleted.channel}`)
     .setAuthor(`Door: ${messageDeleted.author.tag}`, messageDeleted.author.avatarURL({size: 4096}))
     .addField("Het verwijderde bericht:", messageContent);
     
