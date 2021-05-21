@@ -44,7 +44,28 @@ client.on("ready", async () => {
 
 });
 
+client.on("messageDelete", messageDeleted =>{
 
+    if(messageDeleted.author.bot) return;
+    
+    var messageContent = messageDeleted.content;
+    if(!messageContent) messageContent = "Er is geen tekst gevonden";
+    
+    var response = `Bericht: ${messageContent} is verwijderd uit ${messageDeleted.channel}`
+    
+    var deletedEmbed = new discord.MessageEmbed()
+    .setColor("Red")
+    .setTimestamp()
+    .setTitle("Er is een bericht verwijderd")
+    .setDescription(`Er is een bericht verwijderd in: ${messageDeleted.channel}`)
+    .setAuthor(`Door: ${messageDeleted.author.tag}`, messageDeleted.author.avatarURL({size: 4096}))
+    .addField("Het verwijderde bericht:", messageContent);
+    
+    var logChannel = client.channels.cache.find(channels => channels.name === "staff-logs")
+    
+   logChannel.send(deletedEmbed)   
+    
+    });
 
 
 
@@ -70,6 +91,10 @@ client.on("message", async message => {
 
 
 
+
+
+
+
     for (let i = 0; i < swearWords["vloekwoorden"].length; i++) {
 
         var theSwearWord = swearWords["vloekwoorden"][i]
@@ -87,6 +112,8 @@ client.on("message", async message => {
                 .setDescription(`${message.author} was aan het schelden!`)
                 .addField("In:", message.channel)
                 .addField("Het scheldwoord:", theSwearWord)
+
+                var logChannel = client.channels.cache.find(channels => channels.name === "staff-logs")
 
             message.author.send(`Wil je in vervolg niet het woord: **${theSwearWord}** gebruiken in de **${message.guild.name}** server?`)
 
@@ -179,10 +206,6 @@ client.on("message", async message => {
         return message.channel.send("Hallo!")
 
 });
-
-
-
-
 
 
 
