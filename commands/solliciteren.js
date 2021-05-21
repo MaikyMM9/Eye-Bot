@@ -27,67 +27,21 @@ module.exports.run = async (client, message, args) => {
         .setTimestamp()
 
 
-        logChannel.send(aanvraagEmbed).then(async msg => {
+        logChannel.send(aanvraagEmbed)
 
-            var emoji = await promptMessage(msg, message.author ["✅", "❌"]);
-    
-            if (emoji === "✅") {
-    
-                msg.delete();
-    
-                var accepteerEmbed = new discord.MessageEmbed()
-                    .setTitle(`Je bent aangenomen op de: ${message.guild.name} server met deze rol: ${rol} `)
-                    .setDescription("Je krijgt binnen nu en 1 dag een bericht.")
-                  
-    
-    
-    
-    
-                sollicitant.send(accepteerEmbed);
-    
-            
-    
-    
-    
-    
-            } else if (emoji === "❌") {
+        client.on("messageReactionAdd", async (reaction, user) => {
+
+
+            if(reaction.content === "✅"){
+
+
+
+            }else if(reaction.content === "❌"){
+
                 
-    
-                msg.delete();
-                message.reply("Sollicitatie geweigerd!")
-    
-                var weigerEmbed = new discord.MessageEmbed()
-                    .setTitle("**Sollicitatie geweigerd!**")
-                    .setDescription(`Je sollicitatie aanvraag voor de rol: ${rol} op de ${message.guild.name} server is geweigerd! We begrijpen dat dit vervelen is om te horen. Je mag na 2 maanden nog een keer solliciteren!`)
-    
-                sollicitant.send(weigerEmbed)
-    
-    
-    
             }
-    
-    
-    
-    
-    
-    
+
         });
-    
-
-
-}
-
-
-async function promptMessage(message, author, reactions) {
-
-  
-    for (const reaction of reactions) {
-        await message.react(reaction);
-    }
-
-    var filter = (reaction, user) => reactions.includes(reaction.emoji.name) && user.id === author.id;
-    return message.awaitReactions(filter, { max: 1,}).then(collected => collected.first() && collected.first().emoji.name);
-
 
 
 
