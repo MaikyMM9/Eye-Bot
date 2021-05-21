@@ -6,7 +6,7 @@ module.exports.run = async (client, message, args) => {
 
 
     if (!message.member.roles.cache.has('845293879339384852')) {
-        return message.channel.send("Je beschikt niet over de Game-Pass")
+        return message.channel.send("Je beschikt niet over de Community Land-Pass")
 
     }
 
