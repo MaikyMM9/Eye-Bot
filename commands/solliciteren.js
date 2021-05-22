@@ -26,6 +26,18 @@ module.exports.run = async (client, message, args) => {
         .addField("Het motivatie bericht:", motievatieBericht)
         .setTimestamp()
 
+    var accepteerEmbed = new discord.MessageEmbed()
+        .setTitle(sollicitant)
+        .setDescription(`Dit is de uitslag van ${sollicitant} die solliciteerde voor de rol: ${rol}`)
+        .addField(`De uitslag van de sollicitatie is:`, `aangenomen!`)
+
+    var weigerEmbed = new discord.MessageEmbed()
+        .setTitle(sollicitant)
+        .setDescription(`Dit is de uitslag van ${sollicitant} die solliciteerde voor de rol: ${rol}`)
+        .addField(`De uitslag van de sollicitatie is:`, `geweigerd!`)
+
+
+
     const embedMessage = await logChannel.send(aanvraagEmbed);
 
     embedMessage.react('✅').then(() => embedMessage.react('❌'));
@@ -41,14 +53,16 @@ module.exports.run = async (client, message, args) => {
             if (reaction.emoji.name === '✅') {
                 embedMessage.delete();
                 sollicitant.send("Je aanvraag is bekeken door staff leden. De uitslag van je aanvraag is: **aangenomen**. Je krijgt zo snel mogelijk bericht")
-            } else if (reaction.emoji.name === '❌'){
+                logChannel.send(accepteerEmbed)
+            } else if (reaction.emoji.name === '❌') {
                 embedMessage.delete();
                 sollicitant.send("Je aanvraag is bekeken door staff leden. De uitslag van je aanvraag is: **niet aangenomen**. We begrijpen dat dit niet leuk is om te horen! Je mag na 2 maanden nog een keer solliciteren!")
+                logChannel.send(weigerEmbed)
             }
         })
-        
 
-    
+
+
     // client.on("messageReactionAdd", async (reaction, user) => {
 
 
