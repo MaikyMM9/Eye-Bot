@@ -37,14 +37,14 @@ module.exports.run = async (client, message, args) => {
     var accepteerEmbed = new discord.MessageEmbed()
         .setColor("green")
         .setTitle(`${sollicitant}`)
-        .setDescription(`Dit is de uitslag van ${sollicitant} die solliciteerde voor de rol: ${rol}`)
+        .setDescription(`Dit is de uitslag van ${sollicitant} die solliciteerde voor de rol: ${rol} met de leeftijd: ${leeftijd}`)
         .addField(`De uitslag van de sollicitatie is:`, `aangenomen!`)
         .setTimestamp()
 
     var weigerEmbed = new discord.MessageEmbed()
         .setColor("red")
         .setTitle(`${sollicitant}`)
-        .setDescription(`Dit is de uitslag van ${sollicitant} die solliciteerde voor de rol: ${rol}`)
+        .setDescription(`it is de uitslag van ${sollicitant} die solliciteerde voor de rol: ${rol} met de leeftijd: ${leeftijd}`)
         .addField(`De uitslag van de sollicitatie is:`, `geweigerd!`)
         .setTimestamp()
 
