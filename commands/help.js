@@ -13,7 +13,7 @@ module.exports.run = async (client, message, args) => {
         .addField("*help", "Dit is om de commands op te roepen!")
         .addField("*server-info", "Hiermee krijg je de server info")
         .addField("*bot-info", "Hiermee krijg je de info van de bot!")
-        .addField("*solliciteren <rol> <motivatie bericht>", "Hiermee kun jij solliciteren voor een bepaalde rol!")
+        .addField("*solliciteren <rol> <leeftijd> <motivatie bericht>", "Hiermee kun jij solliciteren voor een bepaalde rol!")
         .addField("**Staff commands**", "Hier onder vind je de commands voor staff-leden.")
         .addField("*aankondiging <bericht>", "Hiermee krijgt de hele server een melding over een mededeling/aankondiging!")
         .addField("*dm <gebruiker> <bericht>", "Hiermee stuur je via de bot een privé bericht naar de getagde gebruiker")
