@@ -7,11 +7,16 @@ module.exports.run = async (client, message, args) => {
     //*solliciteren rol motiviatie
     if (!args[0]) return message.reply("Er is geen rol genoemd.");
 
-    if (!args[1]) return message.reply("Er is geen motivatie bericht meegestuurd!");
+    if (!args[1]) return message.reply("Er is geen leeftijd meegestuurd!");
+
+    if (!args[2]) return message.reply("Er is geen motivatie bericht meegestuurd!");
+
 
     var rol = args[0];
 
-    var motievatieBericht = args.slice(1).join(" ");
+    var leeftijd = args[1];
+
+    var motievatieBericht = args.slice(2).join(" ");
 
     var sollicitant = message.author;
 
@@ -25,6 +30,7 @@ module.exports.run = async (client, message, args) => {
         .setDescription("Iemand heeft een solicitatie achtergelaten")
         .addField("De persoon:", sollicitant)
         .addField("Voor de rol:", rol)
+        .addField("leeftijd:", leeftijd)
         .addField("Het motivatie bericht:", motievatieBericht)
         .setTimestamp()
 
