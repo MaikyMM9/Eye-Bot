@@ -23,6 +23,7 @@ module.exports.run = async (client, message, args) => {
         .setTitle("Solicitatie aanvraag")
         .setDescription("Iemand heeft een solicitatie achtergelaten")
         .addField("De persoon:", sollicitant)
+        .addField("Voor de rol:", rol)
         .addField("Het motivatie bericht:", motievatieBericht)
         .setTimestamp()
 
@@ -38,7 +39,7 @@ module.exports.run = async (client, message, args) => {
 
         setTimeout(function(){ 
             
-         }, 1000);
+         }, 2000);
 
     const embedMessage = await logChannel.send(aanvraagEmbed);
 
