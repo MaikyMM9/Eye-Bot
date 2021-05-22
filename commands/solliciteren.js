@@ -36,7 +36,9 @@ module.exports.run = async (client, message, args) => {
         .setDescription(`Dit is de uitslag van ${sollicitant} die solliciteerde voor de rol: ${rol}`)
         .addField(`De uitslag van de sollicitatie is:`, `geweigerd!`)
 
-
+        setTimeout(function(){ 
+            
+         }, 1000);
 
     const embedMessage = await logChannel.send(aanvraagEmbed);
 
