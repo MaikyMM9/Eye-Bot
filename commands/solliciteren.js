@@ -21,6 +21,7 @@ module.exports.run = async (client, message, args) => {
 
     var aanvraagEmbed = new discord.MessageEmbed()
         .setTitle("Solicitatie aanvraag")
+        .setColor("yellow")
         .setDescription("Iemand heeft een solicitatie achtergelaten")
         .addField("De persoon:", sollicitant)
         .addField("Voor de rol:", rol)
@@ -28,16 +29,20 @@ module.exports.run = async (client, message, args) => {
         .setTimestamp()
 
     var accepteerEmbed = new discord.MessageEmbed()
-        .setTitle(sollicitant)
+        .setColor("green")
+        .setTitle(`${sollicitant}`)
         .setDescription(`Dit is de uitslag van ${sollicitant} die solliciteerde voor de rol: ${rol}`)
         .addField(`De uitslag van de sollicitatie is:`, `aangenomen!`)
+        .setTimestamp()
 
     var weigerEmbed = new discord.MessageEmbed()
-        .setTitle(sollicitant)
+        .setColor("red")
+        .setTitle(`${sollicitant}`)
         .setDescription(`Dit is de uitslag van ${sollicitant} die solliciteerde voor de rol: ${rol}`)
         .addField(`De uitslag van de sollicitatie is:`, `geweigerd!`)
+        .setTimestamp()
 
-        
+
     const embedMessage = await logChannel.send(aanvraagEmbed);
 
     embedMessage.react('✅').then(() => embedMessage.react('❌'));
@@ -63,7 +68,7 @@ module.exports.run = async (client, message, args) => {
 
 
 
-    
+
 
 
 }
