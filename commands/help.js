@@ -5,7 +5,7 @@ module.exports.run = async (client, message, args) => {
     message.reply("Je hebt zojuist de commands aangevraagd! Deze kun je vinden in je DM!")
 
     var commandsEmbed = new discord.MessageEmbed()
-        .setTimestamp
+        .setTimestamp()
         .setColor("white")
         .setTitle("De commands")
         .addField("De prefix van deze server is:", "*")
