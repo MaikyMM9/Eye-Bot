@@ -29,6 +29,27 @@ module.exports.run = async (client, message, args) => {
 
     logChannel.send(aanvraagEmbed)
 
+    const embedMessage = await message.channel.send(aanvraagEmbed);
+
+    embedMessage.react('✅').then(() => embedMessage.react('❌'));
+
+    const filter = (reaction, user) => {
+        return ['✅', '❌'].includes(reaction.emoji.name) && user.id === message.author.id;
+    };
+
+    embedMessage.awaitReactions(filter, { max: 1 })
+        .then(collected => {
+            const reaction = collected.first();
+
+            if (reaction.emoji.name === '✅') {
+                embedMessage.delete();
+                sollicitant.send("Je aanvraag is bekeken door staff leden. De uitslag van je aanvraag is: **aangenomen**. Je krijgt zo snel mogelijk bericht")
+            } else if (reaction.emoji.name === '❌'){
+                embedMessage.delete();
+                sollicitant.send("Je aanvraag is bekeken door staff leden. De uitslag van je aanvraag is: **niet aangenomen**. We begrijpen dat dit niet leuk is om te horen! Je mag na 2 maanden nog een keer solliciteren!")
+            }
+        })
+        
 
     
     // client.on("messageReactionAdd", async (reaction, user) => {
