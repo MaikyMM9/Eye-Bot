@@ -26,10 +26,7 @@ module.exports.run = async (client, message, args) => {
         .addField("Het motivatie bericht:", motievatieBericht)
         .setTimestamp()
 
-
-    logChannel.send(aanvraagEmbed)
-
-    const embedMessage = await message.channel.send(aanvraagEmbed);
+    const embedMessage = await logChannel.send(aanvraagEmbed);
 
     embedMessage.react('✅').then(() => embedMessage.react('❌'));
 
