@@ -63,20 +63,7 @@ module.exports.run = async (client, message, args) => {
 
 
 
-    // client.on("messageReactionAdd", async (reaction, user) => {
-
-
-    //     if(reaction.content === "✅"){
-
-
-
-    //     }else if(reaction.content === "❌"){
-
-
-    //     }
-
-    // });
-
+    
 
 
 }
