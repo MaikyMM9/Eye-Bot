@@ -27,21 +27,23 @@ module.exports.run = async (client, message, args) => {
         .setTimestamp()
 
 
-        logChannel.send(aanvraagEmbed)
-
-        client.on("messageReactionAdd", async (reaction, user) => {
+    logChannel.send(aanvraagEmbed)
 
 
-            if(reaction.content === "✅"){
+    
+    // client.on("messageReactionAdd", async (reaction, user) => {
+
+
+    //     if(reaction.content === "✅"){
 
 
 
-            }else if(reaction.content === "❌"){
+    //     }else if(reaction.content === "❌"){
 
-                
-            }
 
-        });
+    //     }
+
+    // });
 
 
 
