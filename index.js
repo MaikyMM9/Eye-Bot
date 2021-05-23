@@ -39,7 +39,7 @@ fs.readdir("./commands/", (err, files) => {
 
 client.on("ready", async () => {
 
-    client.user.setStatus('do not disturb')
+    client.user.setStatus('DND')
     console.log(`${client.user.username} is ingelogd en online!`);
 
 
