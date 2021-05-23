@@ -39,14 +39,6 @@ fs.readdir("./commands/", (err, files) => {
 
 client.on("ready", async () => {
 
-    var now = new Date();
-    var hour = now.getUTCHours();
-    var minute = now.getUTCMinutes();
-    client.on("message", (message) => {
-        if (hour === 23 && minute === 07) {
-            client.user.setStatus('idle')
-        }
-    });
 
 
     console.log(`${client.user.username} is ingelogd en online!`);
