@@ -43,7 +43,7 @@ client.on("ready", async () => {
     var hour = now.getUTCHours();
     var minute = now.getUTCMinutes();
     client.on("message", (message) => {
-        if (hour === 23 && minute === 04) {
+        if (hour === 23 && minute === 05) {
             client.user.setStatus('idle')
         }
     });
