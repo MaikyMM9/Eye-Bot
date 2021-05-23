@@ -3,7 +3,6 @@ const discord = require("discord.js");
 module.exports.run = async (client, message, args) => {
 
     message.delete();
-    
 var beheerder = client.users.cache.find(u => u.tag === 'Maiky#2099')
     //*solliciteren rol motiviatie
     if (!args[0]) return message.reply("Er is geen rol genoemd.");
@@ -54,8 +53,8 @@ var beheerder = client.users.cache.find(u => u.tag === 'Maiky#2099')
 
     embedMessage.react('✅').then(() => embedMessage.react('❌'));
 
-    const filter = (reaction, beheerder) => {
-        return ['✅', '❌'].includes(reaction.emoji.name) && beheerder.id === beheerder.id;
+    const filter = (reaction, user) => {
+        return ['✅', '❌'].includes(reaction.emoji.name) && user.id === beheerder.id;
     };
 
     embedMessage.awaitReactions(filter, { max: 1 })
