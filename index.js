@@ -39,36 +39,45 @@ fs.readdir("./commands/", (err, files) => {
 
 client.on("ready", async () => {
 
-    
+    var now = new Date();
+    var hour = now.getUTCHours();
+    var minute = now.getUTCMinutes();
+    client.on("message", (message) => {
+        if (hour === 11 && minute === 03) {
+            client.channels.get("ChannelID").send("Hello World!");
+        }
+    });
+
+
     console.log(`${client.user.username} is ingelogd en online!`);
 
 
 });
 
-client.on("messageDelete", messageDeleted =>{
+client.on("messageDelete", messageDeleted => {
 
 
-    if(messageDeleted.author.bot) return;
-    
-    
+    if (messageDeleted.author.bot) return;
+
+
     var messageContent = messageDeleted.content;
-    if(!messageContent) messageContent = "Er is geen tekst gevonden";
-    
+    if (!messageContent) messageContent = "Er is geen tekst gevonden";
+
     var response = `Bericht: ${messageContent} is verwijderd uit ${messageDeleted.channel}`
-    
+
     var deletedEmbed = new discord.MessageEmbed()
-    .setColor("Red")
-    .setTimestamp()
-    .setTitle("Er is een bericht verwijderd")
-    .setDescription(`Er is een bericht verwijderd in: ${messageDeleted.channel}`)
-    .setAuthor(`Bericht van: ${messageDeleted.author.tag}`, messageDeleted.author.avatarURL({size: 4096}))
-    .addField("Het verwijderde bericht:", messageContent);
-    
+        .setColor("Red")
+        .setTimestamp()
+        .setTitle("Er is een bericht verwijderd")
+        .setDescription(`Er is een bericht verwijderd in: ${messageDeleted.channel}`)
+        .setAuthor(`Bericht van: ${messageDeleted.author.tag}`, messageDeleted.author.avatarURL({ size: 4096 }))
+        .addField("Het verwijderde bericht:", messageContent);
+
     var logChannel = client.channels.cache.find(channels => channels.name === "staff-logs")
-    
-   logChannel.send(deletedEmbed)   
-    
-    });
+
+    logChannel.send(deletedEmbed)
+
+});
 
 
 
@@ -84,7 +93,7 @@ client.on("message", async message => {
 
     var msg = message.content.toLowerCase();
 
-    
+
 
     //     if (command === `Hey eye`)
 
@@ -103,7 +112,7 @@ client.on("message", async message => {
         var theSwearWord = swearWords["vloekwoorden"][i]
 
         if (msg.includes(swearWords["vloekwoorden"][i])) {
-            
+
 
             message.delete();
 
@@ -117,7 +126,7 @@ client.on("message", async message => {
                 .addField("Het scheldwoord:", theSwearWord)
                 .addField("Gevonden in dit bericht:", message.content)
 
-                var logChannel = client.channels.cache.find(channels => channels.name === "staff-logs")
+            var logChannel = client.channels.cache.find(channels => channels.name === "staff-logs")
 
             message.author.send(`Wil je in vervolg niet het woord: **${theSwearWord}** gebruiken in de **${message.guild.name}** server?`)
 
@@ -151,14 +160,14 @@ client.on("message", async message => {
                 .setDescription(`${message.author} Heeft een link gestuurd!`)
                 .addField("In:", message.channel)
                 .addField("Gedetecteerde trigger bericht:", message.content);
-                
-
-                message.author.send(`Wil je in vervolg niet een link sturen in de **${message.guild.name}** server?`)
-                var logChannel = client.channels.cache.find(channels => channels.name === "staff-logs")
 
 
-                return message.reply("Het sturen van links is niet toegestaan!").then(msg => msg.delete({ timeout: 3000 })).then(logChannel.send(linkEmbed));
-    
+            message.author.send(`Wil je in vervolg niet een link sturen in de **${message.guild.name}** server?`)
+            var logChannel = client.channels.cache.find(channels => channels.name === "staff-logs")
+
+
+            return message.reply("Het sturen van links is niet toegestaan!").then(msg => msg.delete({ timeout: 3000 })).then(logChannel.send(linkEmbed));
+
 
 
 
