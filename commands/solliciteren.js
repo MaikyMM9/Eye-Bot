@@ -3,7 +3,8 @@ const discord = require("discord.js");
 module.exports.run = async (client, message, args) => {
 
     message.delete();
-var beheerder = client.users.fetch('571009965758742530');
+    
+var beheerder = client.users.cache.find(user => user.id === '571009965758742530')
     //*solliciteren rol motiviatie
     if (!args[0]) return message.reply("Er is geen rol genoemd.");
 
