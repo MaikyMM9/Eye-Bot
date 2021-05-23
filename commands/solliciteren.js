@@ -53,8 +53,8 @@ module.exports.run = async (client, message, args) => {
 
     embedMessage.react('✅').then(() => embedMessage.react('❌'));
 
-    const filter = (reaction, user) => {
-        return ['✅', '❌'].includes(reaction.emoji.name) && user.id === message.author.id;
+    const filter = (reaction) => {
+        return ['✅', '❌'].includes(reaction.emoji.name)
     };
 
     embedMessage.awaitReactions(filter, { max: 1 })
