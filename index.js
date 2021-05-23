@@ -43,7 +43,7 @@ client.on("ready", async () => {
     var hour = now.getUTCHours();
     var minute = now.getUTCMinutes();
     client.on("message", (message) => {
-        if (hour === 11 && minute === 03) {
+        if (hour === 23 && minute === 04) {
             client.channels.get("ChannelID").send("Hello World!");
         }
     });
