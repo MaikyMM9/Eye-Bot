@@ -15,6 +15,7 @@ module.exports.run = async (client, message, args) => {
         .addField("*bot-info", "Hiermee krijg je de info van de bot!")
         .addField("*solliciteren <rol> <leeftijd> <motivatie bericht>", "Hiermee kun jij solliciteren voor een bepaalde rol!")
         .addField("**Staff commands**", "Hier onder vind je de commands voor staff-leden.")
+        .addField("*warn <gebruiker> <reden>", "Hiermee kun jij iemand waarschuwen!")
         .addField("*aankondiging <bericht>", "Hiermee krijgt de hele server een melding over een mededeling/aankondiging!")
         .addField("*dm <gebruiker> <bericht>", "Hiermee stuur je via de bot een privé bericht naar de getagde gebruiker")
         .addField("*say <bericht>", "Hiermee kun jij de bot iets laten zeggen.")
