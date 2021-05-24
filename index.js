@@ -116,7 +116,7 @@ client.on("message", async message => {
 
         if (msg.includes(swearWords["vloekwoorden"][i])) {
 
-            if (!message.member.roles.cache.has('843564244834451544')) {
+            if (message.member.roles.cache.has('843564244834451544')) {
                 return;
     
             }
@@ -160,7 +160,7 @@ client.on("message", async message => {
 
         if (msg.includes(discordLink["Links"][a])) {
 
-            if (!message.member.roles.cache.has('843564244834451544')) {
+            if (message.member.roles.cache.has('843564244834451544')) {
                 return;
     
             }
