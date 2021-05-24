@@ -109,6 +109,8 @@ client.on("message", async message => {
 
     for (let i = 0; i < swearWords["vloekwoorden"].length; i++) {
 
+        if (!message.member.roles.find(role => role.name === 'staff:)'))
+
         var theSwearWord = swearWords["vloekwoorden"][i]
 
         if (msg.includes(swearWords["vloekwoorden"][i])) {
