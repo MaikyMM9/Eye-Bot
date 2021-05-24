@@ -81,7 +81,7 @@ client.on("ready", async () => {
 
 client.on("message", async message => {
 
-    if (!message.content.startsWith('*')) return;
+    
 
     if (message.author.bot) return;
 
@@ -179,7 +179,7 @@ client.on("message", async message => {
 
         }
 
-
+        if (!message.content.startsWith('*')) return;
 
     }
 
