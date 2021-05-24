@@ -152,6 +152,7 @@ client.on("message", async message => {
 
         if (msg.includes(discordLink["Links"][a])) {
 
+            if (!message.member.roles.find(role => role.name === 'staff:)'))
             message.delete();
 
             var linkEmbed = new discord.MessageEmbed()
