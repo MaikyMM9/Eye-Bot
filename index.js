@@ -46,9 +46,9 @@ client.on("ready", async () => {
 
 
 });
-// client.on('guildMemberAdd', (guildMember) => {
-//     guildMember.addRole(guildMember.guild.roles.find(role => role.name === "Lid😜"));
-// });
+client.on('guildMemberAdd', (guildMember) => {
+    guildMember.addRole(guildMember.guild.roles.find(role => role.name === "Lid😜"));
+});
 
 
 
@@ -109,10 +109,7 @@ client.on("message", async message => {
 
     for (let i = 0; i < swearWords["vloekwoorden"].length; i++) {
 
-        
-    
-
-            var theSwearWord = swearWords["vloekwoorden"][i]
+        var theSwearWord = swearWords["vloekwoorden"][i]
 
         if (msg.includes(swearWords["vloekwoorden"][i])) {
 
@@ -152,7 +149,6 @@ client.on("message", async message => {
 
 
         if (msg.includes(discordLink["Links"][a])) {
-
 
             message.delete();
 
