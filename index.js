@@ -109,34 +109,35 @@ client.on("message", async message => {
 
     for (let i = 0; i < swearWords["vloekwoorden"].length; i++) {
 
-        if (!message.member.roles.find(role => role.name === 'staff:)'))
+        var allowedRole = message.guild.roles.find("name", "staff:)")
+        if (!message.member.roles.has(allowedRole.id)) {
 
-        var theSwearWord = swearWords["vloekwoorden"][i]
+            var theSwearWord = swearWords["vloekwoorden"][i]
 
-        if (msg.includes(swearWords["vloekwoorden"][i])) {
-
-
-            message.delete();
-
-            var scheldUserEmbed = new discord.MessageEmbed()
-                .setTitle("Een gebruiker heeft gescholden!")
-                .setColor("#470191")
-                .setFooter(message.member.displayName)
-                .setTimestamp()
-                .setDescription(`${message.author} was aan het schelden!`)
-                .addField("In:", message.channel)
-                .addField("Het scheldwoord:", theSwearWord)
-                .addField("Gevonden in dit bericht:", message.content)
-
-            var logChannel = client.channels.cache.find(channels => channels.name === "staff-logs")
-
-            message.author.send(`Wil je in vervolg niet het woord: **${theSwearWord}** gebruiken in de **${message.guild.name}** server?`)
+            if (msg.includes(swearWords["vloekwoorden"][i])) {
 
 
+                message.delete();
 
-            return message.reply("Het gebruiken van scheldwoorden is niet toegestaan!").then(msg => msg.delete({ timeout: 3000 })).then(logChannel.send(scheldUserEmbed));
+                var scheldUserEmbed = new discord.MessageEmbed()
+                    .setTitle("Een gebruiker heeft gescholden!")
+                    .setColor("#470191")
+                    .setFooter(message.member.displayName)
+                    .setTimestamp()
+                    .setDescription(`${message.author} was aan het schelden!`)
+                    .addField("In:", message.channel)
+                    .addField("Het scheldwoord:", theSwearWord)
+                    .addField("Gevonden in dit bericht:", message.content)
+
+                var logChannel = client.channels.cache.find(channels => channels.name === "staff-logs")
+
+                message.author.send(`Wil je in vervolg niet het woord: **${theSwearWord}** gebruiken in de **${message.guild.name}** server?`)
 
 
+
+                return message.reply("Het gebruiken van scheldwoorden is niet toegestaan!").then(msg => msg.delete({ timeout: 3000 })).then(logChannel.send(scheldUserEmbed));
+
+            }
 
         }
 
@@ -151,31 +152,32 @@ client.on("message", async message => {
 
 
         if (msg.includes(discordLink["Links"][a])) {
-
-            if (!message.member.roles.find(role => role.name === 'staff:)'))
-            message.delete();
-
-            var linkEmbed = new discord.MessageEmbed()
-                .setTitle("Een gebruiker heeft een link gestuurd!")
-                .setColor("#470191")
-                .setFooter(message.member.displayName)
-                .setTimestamp()
-                .setDescription(`${message.author} Heeft een link gestuurd!`)
-                .addField("In:", message.channel)
-                .addField("Gedetecteerde trigger bericht:", message.content);
+            if (!message.member.roles.has(allowedRole.id)) {
 
 
-            message.author.send(`Wil je in vervolg niet een link sturen in de **${message.guild.name}** server?`)
-            var logChannel = client.channels.cache.find(channels => channels.name === "staff-logs")
+                message.delete();
+
+                var linkEmbed = new discord.MessageEmbed()
+                    .setTitle("Een gebruiker heeft een link gestuurd!")
+                    .setColor("#470191")
+                    .setFooter(message.member.displayName)
+                    .setTimestamp()
+                    .setDescription(`${message.author} Heeft een link gestuurd!`)
+                    .addField("In:", message.channel)
+                    .addField("Gedetecteerde trigger bericht:", message.content);
 
 
-            return message.reply("Het sturen van links is niet toegestaan!").then(msg => msg.delete({ timeout: 3000 })).then(logChannel.send(linkEmbed));
+                message.author.send(`Wil je in vervolg niet een link sturen in de **${message.guild.name}** server?`)
+                var logChannel = client.channels.cache.find(channels => channels.name === "staff-logs")
 
 
-
+                return message.reply("Het sturen van links is niet toegestaan!").then(msg => msg.delete({ timeout: 3000 })).then(logChannel.send(linkEmbed));
 
 
 
+
+
+            }
 
 
 
