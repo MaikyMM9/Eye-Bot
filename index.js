@@ -39,7 +39,7 @@ fs.readdir("./commands/", (err, files) => {
 
 client.on("ready", async () => {
 
-    
+    if (!message.content.startsWith('*')) return;
 
     
     console.log(`${client.user.username} is ingelogd en online!`);
