@@ -109,15 +109,17 @@ client.on("message", async message => {
 
     for (let i = 0; i < swearWords["vloekwoorden"].length; i++) {
 
-        if (!message.member.roles.cache.has('843564244834451544')) {
-            return;
-
-        }
+       
 
 
         var theSwearWord = swearWords["vloekwoorden"][i]
 
         if (msg.includes(swearWords["vloekwoorden"][i])) {
+
+            if (!message.member.roles.cache.has('843564244834451544')) {
+                return;
+    
+            }
 
 
             message.delete();
@@ -151,15 +153,17 @@ client.on("message", async message => {
 
     for (let a = 0; a < discordLink["Links"].length; a++) {
 
-        if (!message.member.roles.cache.has('843564244834451544')) {
-            return;
-
-        }
+       
 
 
 
 
         if (msg.includes(discordLink["Links"][a])) {
+
+            if (!message.member.roles.cache.has('843564244834451544')) {
+                return;
+    
+            }
 
             message.delete();
 
