@@ -109,7 +109,7 @@ client.on("message", async message => {
 
     for (let i = 0; i < swearWords["vloekwoorden"].length; i++) {
 
-        var allowedRole = message.guild.roles.find("name", "staff:)")
+        
     
 
             var theSwearWord = swearWords["vloekwoorden"][i]
