@@ -22,7 +22,7 @@ var beheerder = client.users.cache.find(u => u.tag === 'Maiky#2099')
 
     var logChannel = client.channels.cache.find(channels => channels.name === "staff-logs")
 
-    message.author.send("Je sollicitatie is verzonden! Je aanvraag word bekeken door onze staff leden. Je hoort binnenkort of je bent aangenomen!")
+    message.author.send("Je sollicitatie is verzonden! Je aanvraag word bekeken door onze staff leden. Je moet binnenkort op gesprek, vervolgens hoor je daarna of je bent aangenomen!")
 
     var aanvraagEmbed = new discord.MessageEmbed()
         .setTitle("Solicitatie aanvraag")

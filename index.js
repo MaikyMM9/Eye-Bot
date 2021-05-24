@@ -46,9 +46,9 @@ client.on("ready", async () => {
 
 
 });
-client.on('guildMemberAdd', (guildMember) => {
-    guildMember.addRole(guildMember.guild.roles.find(role => role.name === "Lid😜"));
-});
+// client.on('guildMemberAdd', (guildMember) => {
+//     guildMember.addRole(guildMember.guild.roles.find(role => role.name === "Lid😜"));
+// });
 
 
 
