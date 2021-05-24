@@ -52,30 +52,30 @@ client.on('guildMemberAdd', (guildMember) => {
 
 
 
-client.on("messageDelete", messageDeleted => {
+// client.on("messageDelete", messageDeleted => {
 
 
-    if (messageDeleted.author.bot) return;
+//     if (messageDeleted.author.bot) return;
 
 
-    var messageContent = messageDeleted.content;
-    if (!messageContent) messageContent = "Er is geen tekst gevonden";
+//     var messageContent = messageDeleted.content;
+//     if (!messageContent) messageContent = "Er is geen tekst gevonden";
 
-    var response = `Bericht: ${messageContent} is verwijderd uit ${messageDeleted.channel}`
+//     var response = `Bericht: ${messageContent} is verwijderd uit ${messageDeleted.channel}`
 
-    var deletedEmbed = new discord.MessageEmbed()
-        .setColor("Red")
-        .setTimestamp()
-        .setTitle("Er is een bericht verwijderd")
-        .setDescription(`Er is een bericht verwijderd in: ${messageDeleted.channel}`)
-        .setAuthor(`Bericht van: ${messageDeleted.author.tag}`, messageDeleted.author.avatarURL({ size: 4096 }))
-        .addField("Het verwijderde bericht:", messageContent);
+//     var deletedEmbed = new discord.MessageEmbed()
+//         .setColor("Red")
+//         .setTimestamp()
+//         .setTitle("Er is een bericht verwijderd")
+//         .setDescription(`Er is een bericht verwijderd in: ${messageDeleted.channel}`)
+//         .setAuthor(`Bericht van: ${messageDeleted.author.tag}`, messageDeleted.author.avatarURL({ size: 4096 }))
+//         .addField("Het verwijderde bericht:", messageContent);
 
-    var logChannel = client.channels.cache.find(channels => channels.name === "staff-logs")
+//     var logChannel = client.channels.cache.find(channels => channels.name === "staff-logs")
 
-    logChannel.send(deletedEmbed)
+//     logChannel.send(deletedEmbed)
 
-});
+// });
 
 
 
