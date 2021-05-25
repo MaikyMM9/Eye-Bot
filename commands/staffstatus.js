@@ -8,7 +8,7 @@ var statusEmbed = new discord.MessageEmbed()
 .setTitle("Status")
 .setTimestamp()
 .setDescription("Dit is de status voor sollicitatie-aanvragen!")
-.addField("Moderators nog nodig:", "1")
+.addField("Moderators nog nodig:", "0")
 .addField("Helpers nog nodig:", "2")
 .setFooter("Eye")
 
