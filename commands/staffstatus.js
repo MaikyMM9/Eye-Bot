@@ -21,7 +21,7 @@ var statusEmbed = new discord.MessageEmbed()
 .setTitle("Status")
 .setDescription("Dit is de status voor sollicitatie-aanvragen! Als er genoeg staff leden zijn hoef je niet te solliciteren!")
 .addField("Mensen met de rol moderator:", membersWithModRole)
-.addFieldaddField("Mensen met de rol moderator:", membersWithHelpRole)
+.addField("Mensen met de rol moderator:", membersWithHelpRole)
 .addField("Moderators nodig:", "3")
 .addField("Helpers nodig:", "4")
 .setFooter("Eye");
