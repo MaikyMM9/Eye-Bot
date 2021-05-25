@@ -11,8 +11,8 @@ module.exports.run = async(client, message, args) => {
 
    
 
-   var genoegModerators = membersWithModRole.size == 2
-   var genoegHelpers = membersWithHelpRole.size == 3
+//    var genoegModerators = membersWithModRole.size == 2
+//    var genoegHelpers = membersWithHelpRole.size == 3
 
 
 
