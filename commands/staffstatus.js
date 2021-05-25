@@ -12,6 +12,8 @@ var statusEmbed = new discord.MessageEmbed()
 .addField("Helpers nog nodig:", "2")
 .setFooter("Eye")
 
+message.channel.send(statusEmbed);
+
 
 
 }
