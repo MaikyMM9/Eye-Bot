@@ -10,6 +10,7 @@ module.exports.run = async (client, message, args) => {
         .setTitle("De commands")
         .addField("De prefix van deze server is:", "*")
         .addField("*Welkom", "Deze command is om te testen of de bot het doet!")
+        .addField("*staffstatus", "Hiermee kun je de sollicitatie aanvragen checken!")
         .addField("*help", "Dit is om de commands op te roepen!")
         .addField("*server-info", "Hiermee krijg je de server info")
         .addField("*bot-info", "Hiermee krijg je de info van de bot!")
