@@ -33,7 +33,7 @@ setInterval(
     async () => {
       try {
         const message = await client.channels.get('847039423634735134').fetchMessage('847039600165781514')
-        await message.edit(new Discord.RichEmbed(statusEmbed).setDescription('Last Time updated: ' + getTime()))
+        await message.edit(new Discord.MessageEmbed(statusEmbed).setDescription('Last Time updated: ' + getTime()))
       } catch (error) {
         console.error(error)
       }
