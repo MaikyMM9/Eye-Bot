@@ -29,6 +29,19 @@ var statusEmbed = new discord.MessageEmbed()
 message.channel.send(statusEmbed);
 
 
+setInterval(
+    async () => {
+      try {
+        const message = await client.channels.get('847039423634735134').fetchMessage('847039600165781514')
+        await message.edit(new Discord.RichEmbed(statusEmbed).setDescription('Last Time updated: ' + getTime()))
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    1000
+  )
+
+
 
 }
 module.exports.help = {
