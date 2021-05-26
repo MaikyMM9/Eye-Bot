@@ -5,7 +5,7 @@ const warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 module.exports.run = async (client, message, args) => {
 
 
-    var persoonGenoemd = message.guild.members.get(args[0])
+    // var persoonGenoemd = message.guild.members.get(args[0])
 
     if (!message.member.hasPermission("KICK_MEMBERS")) return message.reply("Deze commando is alleen voor de staff leden!");
 
@@ -15,7 +15,7 @@ module.exports.run = async (client, message, args) => {
 
     if (!args[1]) return message.reply("Er zijn geen redenen meegegeven!");
 
-    var warnUser = message.guild.member(message.mentions.users.first() || persoonGenoemd);
+    var warnUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
     var reden = args.slice(1).join(" ");
 
