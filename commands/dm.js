@@ -12,7 +12,7 @@ message.delete();
 
 
 var dmMessage = args.slice(1).join(' ');
-var dmPerson = message.guild.member(message.mentions.users.first() || client.users.cache.get(args[0]));
+var dmPerson = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
 
 var userEmbed = new discord.MessageEmbed()
     .setTitle(`**${message.author.username} heeft een bericht verstuurd**`)
