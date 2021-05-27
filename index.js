@@ -86,12 +86,17 @@ client.on("message", async message => {
     if (message.author.bot) return;
 
     if (message.channel.type == "dm") {
+        var embed2 = new discord.MessageEmbed()
+        .setTitle("Je bericht is verstuurd naar de staff!")
+        .setTimestamp()
+        message.author.send(embed2)
         var logChannel = client.channels.cache.find(channels => channels.name === "staff-logs")
         var gestuurdeBericht = message.content
         var embed = new discord.MessageEmbed()
         .setTitle("Bericht in dm")
         .addField("Van:", message.author)
         .addField("Bericht:", gestuurdeBericht)
+        .setTimestamp()
 
         logChannel.send(embed)
 

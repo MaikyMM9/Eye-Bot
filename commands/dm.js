@@ -15,10 +15,11 @@ var dmMessage = args.slice(1).join(' ');
 var dmPerson = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
 var userEmbed = new discord.MessageEmbed()
-    .setTitle(`**${message.author} heeft een bericht verstuurd**`)
+    .setTitle(`**${message.author.username} heeft een bericht verstuurd**`)
+    .setTimestamp()
     .setColor("#470191")
     .addField("Naar:", dmPerson)
-    .addField(`Het bericht dat ${message.author} heeft verstuurd:`, dmMessage)
+    .addField(`Het bericht dat ${message.author.username} heeft verstuurd:`, dmMessage)
     .setFooter("Eye")
 
 message.author.send(userEmbed)
@@ -26,6 +27,7 @@ var logChannel = message.member.guild.channels.cache.find(channels => channels.n
 logChannel.send(userEmbed)
 
 var dmEmbed = new discord.MessageEmbed()
+.setTimestamp()
 .setTitle("**U hebt een bericht ontvangen van een Staff-Lid!**")
 .setColor("#470191")
 .addField("Het bericht:" , dmMessage)
