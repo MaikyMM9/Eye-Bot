@@ -85,7 +85,18 @@ client.on("message", async message => {
 
     if (message.author.bot) return;
 
-    if (message.channel.type == "dm") return;
+    if (message.channel.type == "dm") {
+        var logChannel = client.channels.cache.find(channels => channels.name === "staff-logs")
+        var gestuurdeBericht = message.content
+        var embed = new discord.MessageEmbed()
+        .setTitle("Bericht in dm")
+        .addField("Van:", message.author)
+        .addField("Bericht:", gestuurdeBericht)
+
+        logChannel.send(embed)
+
+
+    }
 
     var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
 
