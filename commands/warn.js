@@ -4,6 +4,8 @@ const warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 
 module.exports.run = async (client, message, args) => {
 
+    message.delete();
+
 
     // var persoonGenoemd = message.guild.members.get(args[0])
 
@@ -56,11 +58,13 @@ module.exports.run = async (client, message, args) => {
 
        
         logChannel.send(warnEmbed)
+        message.channel.send("Gebruiker gewarnd!")
         warnUser.send(`Je hebt zojuist een waarschuwing ontvangen in de server: ${message.guild.name} met de volgende reden: ${reden}. Let op! Bij 3 waarschuwingen is een verbanning het vervolg!`)
 
 
     } else if (warns[warnUser.id].warns == 2) {
 
+        message.channel.send("Gebruiker gewarnd!")
         logChannel.send(warnEmbed)
 
         var pasOpEmbed = new discord.MessageEmbed()
@@ -83,7 +87,7 @@ module.exports.run = async (client, message, args) => {
             .setTimestamp()
             .addField(`${warnUser.name} is verbannen wegens 3 warnings`, "U kunt deze verbanning intrekken in instellingen!")
 
-            logChannel.send(verbannenUserEmbed);
+            logChannel.send(verbannenUserEmbed);s
 
 
 
