@@ -11,7 +11,7 @@ module.exports.run = async (client, message, args) => {
     var gebruikerEmbed = new discord.MessageEmbed()
 .setTitle("Gegevens")
 .setDescription(`Dit zijn de gegevens van ${user}`)
-.addField(`${user} is gejoind op:`,  message.user.joinedAt)
+.addField(`${user} is gejoind op:`,  user.joinedAt)
 // .addField(`Wanneer ${user} op discord is aangemeld:`, user.createdAt)
 .addField(`Het ID van ${user}`, user.id)
 
