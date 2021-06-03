@@ -25,6 +25,6 @@ var logChannel = message.member.guild.channels.cache.find(channels => channels.n
 
 }
 module.exports.help = {
-    name: "Welkom"
+    name: "status"
 
 }
