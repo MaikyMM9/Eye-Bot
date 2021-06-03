@@ -10,7 +10,7 @@ module.exports.run = async (client, message, args) => {
 
     }
 
-    var role = message.guild.roles.find(role => role.id === "849980919573512212");
+    var role = message.guild.roles.cache.find(role => role.id === "849980919573512212");
 
 
     var verifiërenembed = new discord.MessageEmbed()
