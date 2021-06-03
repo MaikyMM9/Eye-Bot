@@ -36,7 +36,7 @@ module.exports.run = async (client, message, args) => {
 
             if (reaction.emoji.name === '✅') {
                 embedMessage.delete();
-                message.member.addRole(role);
+                message.member.guild.roles.add(role);
                 message.author.send("Je bent nu geverifieerd!")
                 var logChannel = message.member.guild.channels.cache.find(channels => channels.name === "staff-logs")
                 logChannel.send(`${message.author} is nu geverifieerd!`)
