@@ -12,7 +12,7 @@ module.exports.run = async (client, message, args) => {
 .setTitle("Gegevens")
 .setDescription(`Dit zijn de gegevens van ${user}`)
 .addField(`${user} is gejoind op:`,  message.user.joinedAt)
-.addField(`Wanneer ${user} op discord is aangemeld:`, user.createdAt)
+// .addField(`Wanneer ${user} op discord is aangemeld:`, user.createdAt)
 .addField(`Het ID van ${user}`, user.id)
 
 
