@@ -19,7 +19,7 @@ module.exports.run = async (client, message, args) => {
 
 
         message.delete();
-        var status = user.member.presence.status;
+        var status = member.user.presence.status;
 
 
         var nickname = user.username;
