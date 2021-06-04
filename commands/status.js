@@ -8,12 +8,12 @@ module.exports.run = async (client, message, args) => {
 
     var user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
-    if (!message.user.roles.cache.has('849980919573512212')) {
-
+    if (!message.member.user.roles.cache.has('849980919573512212')) {
+message.channel.send("Deze gebruiker is net geverifieerd!")
         return;
     }
 
-    if (message.user.roles.cache.has('849980919573512212')) {
+    if (message.member.user.roles.cache.has('849980919573512212')) {
 
 
         message.delete();
