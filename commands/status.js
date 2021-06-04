@@ -19,7 +19,7 @@ module.exports.run = async (client, message, args) => {
 
 
         message.delete();
-        var status = user.user.presence.status;
+        var status = user.presence.status;
 
 
         var nickname = user.username;
@@ -32,7 +32,7 @@ module.exports.run = async (client, message, args) => {
             .setDescription(`Dit zijn de gegevens van ${user.user.tag}`)
             .addField(`${user.user.tag} is gejoind op:`, user.joinedAt)
             .addField(`${user.user.tag} zijn account is aangemaakt op:`, user.user.createdAt)
-            .addField("Status:", status)
+            // .addField("Status:", status)
             .addField(`Het ID van ${user.user.tag}`, user.id)
 
 
