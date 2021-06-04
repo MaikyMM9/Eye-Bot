@@ -19,14 +19,20 @@ module.exports.run = async (client, message, args) => {
 
 
         message.delete();
+        var status = user.user.presence.status;
 
+
+        var nickname = user.username;
+
+        if (nickname == 0 || undefined) nickname = "Geen bijnaam";
         var gebruikerEmbed = new discord.MessageEmbed()
             .setTitle("Gegevens")
             .setThumbnail(user.user.displayAvatarURL)
-            .addField(`Bijnaam van ${user.user.tag}:`, user.nickname, true)
+            .addField(`Bijnaam van ${user.user.tag}:`, nickname, true)
             .setDescription(`Dit zijn de gegevens van ${user.username}`)
             .addField(`${user.user.tag} is gejoind op:`, user.joinedAt)
             .addField(`${user.user.tag} zijn account is aangemaakt op:`, user.user.createdAt)
+            .addField("Status:", status)
             .addField(`Het ID van ${user.user.tag}`, user.id)
 
 
