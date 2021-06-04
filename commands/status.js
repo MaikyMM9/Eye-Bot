@@ -19,12 +19,12 @@ module.exports.run = async (client, message, args) => {
 
 
         message.delete();
-        var status = user.user.presence.status;
+        var status = user.presence.status;
 
 
         var nickname = user.username;
 
-        if (nickname == 0 || undefined) nickname = "Geen bijnaam";
+        if (nickname == null || undefined) nickname = "Geen bijnaam";
         var gebruikerEmbed = new discord.MessageEmbed()
             .setTitle("Gegevens")
             .setThumbnail(user.user.displayAvatarURL)
