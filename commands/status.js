@@ -39,7 +39,7 @@ module.exports.run = async (client, message, args) => {
         var logChannel = message.member.guild.channels.cache.find(channels => channels.name === "staff-logs")
         logChannel.send(gebruikerEmbed)
 
-        gebruikerEmbed.delete(60000);
+        msg.delete(60000);
 
 
     }
