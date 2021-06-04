@@ -20,7 +20,7 @@ module.exports.run = async (client, message, args) => {
 
         var gebruikerEmbed = new discord.MessageEmbed()
             .setTitle("Gegevens")
-            .setThumbnail(user.displayAvatarURL())
+            .setThumbnail(user.displayAvatarURL)
             .addField(`Bijnaam van ${user}:`, user.nickname, true)
             .setDescription(`Dit zijn de gegevens van ${user}`)
             .addField(`${user} is gejoind op:`, user.joinedAt)
