@@ -17,7 +17,7 @@ module.exports.run = async (client, message, args) => {
 
     if (!args[1]) return message.reply("Er zijn geen redenen meegegeven!");
 
-    var warnUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    var warnUser = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
 
     var reden = args.slice(1).join(" ");
 
