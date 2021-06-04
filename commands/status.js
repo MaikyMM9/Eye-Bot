@@ -8,19 +8,19 @@ module.exports.run = async (client, message, args) => {
 
     var user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
-    if (!message.member.user.roles.cache.has('849980919573512212')) {
-message.channel.send("Deze gebruiker is net geverifieerd!")
+    if (!user.roles.cache.has('849980919573512212')) {
+        message.channel.send("Deze gebruiker is net geverifieerd!")
         return;
     }
 
-    if (message.member.user.roles.cache.has('849980919573512212')) {
+    if (user.roles.cache.has('849980919573512212')) {
 
 
         message.delete();
 
         var gebruikerEmbed = new discord.MessageEmbed()
             .setTitle("Gegevens")
-            .setThumbnail(member.user.displayAvatarURL({size: 4096}))
+            .setThumbnail(member.user.displayAvatarURL({ size: 4096 }))
             .addField(`Bijnaam van ${user}:`, member.nickname, true)
             .setDescription(`Dit zijn de gegevens van ${user}`)
             .addField(`${user} is gejoind op:`, user.joinedAt)
