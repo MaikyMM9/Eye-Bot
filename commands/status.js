@@ -2,6 +2,8 @@ const discord = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
 
+    if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("Deze commando is alleen voor de staff leden!")
+
 
 
     if (!args[0]) return message.reply("Er is geen gebruiker genoemd!");
@@ -9,7 +11,7 @@ module.exports.run = async (client, message, args) => {
     var user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
     if (!user.roles.cache.has('849980919573512212')) {
-        message.channel.send("Deze gebruiker is net geverifieerd!")
+        message.channel.send("Deze gebruiker is niet geverifieerd!")
         return;
     }
 
