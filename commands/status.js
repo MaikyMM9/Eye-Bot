@@ -29,7 +29,7 @@ module.exports.run = async (client, message, args) => {
             .setTitle("Gegevens")
             .setThumbnail(user.user.displayAvatarURL)
             .addField(`Bijnaam van ${user.user.tag}:`, nickname, true)
-            .setDescription(`Dit zijn de gegevens van ${user.username}`)
+            .setDescription(`Dit zijn de gegevens van ${user.user.tag}`)
             .addField(`${user.user.tag} is gejoind op:`, user.joinedAt)
             .addField(`${user.user.tag} zijn account is aangemaakt op:`, user.user.createdAt)
             .addField("Status:", status)
