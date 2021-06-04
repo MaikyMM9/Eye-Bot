@@ -20,12 +20,12 @@ module.exports.run = async (client, message, args) => {
 
         var gebruikerEmbed = new discord.MessageEmbed()
             .setTitle("Gegevens")
-            .setThumbnail(user.displayAvatarURL)
-            .addField(`Bijnaam van ${user}:`, user.nickname, true)
-            .setDescription(`Dit zijn de gegevens van ${user}`)
-            .addField(`${user} is gejoind op:`, user.joinedAt)
-            .addField(`${user} zijn account is aangemaakt op:`, user.createdAt)
-            .addField(`Het ID van ${user}`, user.id)
+            .setThumbnail(user.user.displayAvatarURL)
+            .addField(`Bijnaam van ${user.username}:`, user.nickname, true)
+            .setDescription(`Dit zijn de gegevens van ${user.username}`)
+            .addField(`${user.username} is gejoind op:`, user.joinedAt)
+            .addField(`${user.username} zijn account is aangemaakt op:`, user.user.createdAt)
+            .addField(`Het ID van ${user.username}`, user.id)
 
 
         var logChannel = message.member.guild.channels.cache.find(channels => channels.name === "staff-logs")
