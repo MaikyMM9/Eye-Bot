@@ -21,11 +21,11 @@ module.exports.run = async (client, message, args) => {
         var gebruikerEmbed = new discord.MessageEmbed()
             .setTitle("Gegevens")
             .setThumbnail(user.user.displayAvatarURL)
-            .addField(`Bijnaam van ${user.username}:`, user.nickname, true)
+            .addField(`Bijnaam van ${user.tag}:`, user.nickname, true)
             .setDescription(`Dit zijn de gegevens van ${user.username}`)
             .addField(`${user.username} is gejoind op:`, user.joinedAt)
             .addField(`${user.username} zijn account is aangemaakt op:`, user.user.createdAt)
-            .addField(`Het ID van ${user.username}`, user.id)
+            .addField(`Het ID van ${user.tag}`, user.id)
 
 
         var logChannel = message.member.guild.channels.cache.find(channels => channels.name === "staff-logs")
