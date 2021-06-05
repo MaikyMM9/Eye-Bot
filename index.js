@@ -54,7 +54,7 @@ client.on("ready", async () => {
 
 client.on("messageDelete", messageDeleted => {
 
-    if (message.author.roles.cache.has('849980919573512212')) {
+    if (messageDeleted.author.roles.cache.has('849980919573512212')) {
         return;
 
     }
