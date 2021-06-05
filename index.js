@@ -54,13 +54,13 @@ client.on("ready", async () => {
 
 client.on("messageDelete", messageDeleted => {
 
-    if (message.member.roles.cache.has('849980919573512212')) {
+    if (message.author.roles.cache.has('849980919573512212')) {
         return;
 
     }
 
 
-    if (!message.member.roles.cache.has('849980919573512212')) {
+    if (!message.author.roles.cache.has('849980919573512212')) {
 
 
 
