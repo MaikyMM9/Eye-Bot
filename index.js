@@ -83,11 +83,7 @@ client.on("messageDelete", messageDeleted => {
 
 
 
-        if (messageContent.member.author.roles.cache.has('849980919573512212')) {
-            return;
-    
-        }
-
+       
         logChannel.send(deletedEmbed)
 
     
