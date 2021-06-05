@@ -54,10 +54,7 @@ client.on("ready", async () => {
 
 client.on("messageDelete", messageDeleted => {
 
-    if (messageDeleted.author.roles.cache.has('849980919573512212')) {
-        return;
 
-    }
 
 
   
@@ -82,6 +79,14 @@ client.on("messageDelete", messageDeleted => {
             .addField("Het verwijderde bericht:", messageContent);
 
         var logChannel = client.channels.cache.find(channels => channels.name === "staff-logs")
+
+
+
+
+        if (messageContent.author.roles.cache.has('849980919573512212')) {
+            return;
+    
+        }
 
         logChannel.send(deletedEmbed)
 
