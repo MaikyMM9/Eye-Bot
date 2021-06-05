@@ -54,26 +54,38 @@ client.on("ready", async () => {
 
 client.on("messageDelete", messageDeleted => {
 
+    if (message.member.roles.cache.has('849980919573512212')) {
+        return;
 
-    if (messageDeleted.author.bot) return;
+    }
 
 
-    var messageContent = messageDeleted.content;
-    if (!messageContent) messageContent = "Er is geen tekst gevonden";
+    if (!message.member.roles.cache.has('849980919573512212')) {
 
-    var response = `Bericht: ${messageContent} is verwijderd uit ${messageDeleted.channel}`
 
-    var deletedEmbed = new discord.MessageEmbed()
-        .setColor("Red")
-        .setTimestamp()
-        .setTitle("Er is een bericht verwijderd")
-        .setDescription(`Er is een bericht verwijderd in: ${messageDeleted.channel}`)
-        .setAuthor(`Bericht van: ${messageDeleted.author.tag}`, messageDeleted.author.avatarURL({ size: 4096 }))
-        .addField("Het verwijderde bericht:", messageContent);
 
-    var logChannel = client.channels.cache.find(channels => channels.name === "staff-logs")
 
-    logChannel.send(deletedEmbed)
+        if (messageDeleted.author.bot) return;
+
+
+        var messageContent = messageDeleted.content;
+        if (!messageContent) messageContent = "Er is geen tekst gevonden";
+
+        var response = `Bericht: ${messageContent} is verwijderd uit ${messageDeleted.channel}`
+
+        var deletedEmbed = new discord.MessageEmbed()
+            .setColor("Red")
+            .setTimestamp()
+            .setTitle("Er is een bericht verwijderd")
+            .setDescription(`Er is een bericht verwijderd in: ${messageDeleted.channel}`)
+            .setAuthor(`Bericht van: ${messageDeleted.author.tag}`, messageDeleted.author.avatarURL({ size: 4096 }))
+            .addField("Het verwijderde bericht:", messageContent);
+
+        var logChannel = client.channels.cache.find(channels => channels.name === "staff-logs")
+
+        logChannel.send(deletedEmbed)
+
+    }
 
 });
 
@@ -87,16 +99,16 @@ client.on("message", async message => {
 
     if (message.channel.type == "dm") {
         var embed2 = new discord.MessageEmbed()
-        .setTitle("Je bericht is verstuurd naar de staff!")
-        .setTimestamp()
+            .setTitle("Je bericht is verstuurd naar de staff!")
+            .setTimestamp()
         message.author.send(embed2)
         var logChannel = client.channels.cache.find(channels => channels.name === "staff-logs")
         var gestuurdeBericht = message.content
         var embed = new discord.MessageEmbed()
-        .setTitle("Bericht in dm")
-        .addField("Van:", message.author)
-        .addField("Bericht:", gestuurdeBericht)
-        .setTimestamp()
+            .setTitle("Bericht in dm")
+            .addField("Van:", message.author)
+            .addField("Bericht:", gestuurdeBericht)
+            .setTimestamp()
 
         logChannel.send(embed)
 
@@ -125,7 +137,7 @@ client.on("message", async message => {
 
     for (let i = 0; i < swearWords["vloekwoorden"].length; i++) {
 
-       
+
 
 
         var theSwearWord = swearWords["vloekwoorden"][i]
@@ -134,7 +146,7 @@ client.on("message", async message => {
 
             if (message.member.roles.cache.has('843564244834451544')) {
                 return;
-    
+
             }
 
 
@@ -169,7 +181,7 @@ client.on("message", async message => {
 
     for (let a = 0; a < discordLink["Links"].length; a++) {
 
-       
+
 
 
 
@@ -178,7 +190,7 @@ client.on("message", async message => {
 
             if (message.member.roles.cache.has('843564244834451544')) {
                 return;
-    
+
             }
 
             message.delete();
