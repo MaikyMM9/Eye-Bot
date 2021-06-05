@@ -83,7 +83,7 @@ client.on("messageDelete", messageDeleted => {
 
 
 
-        if (messageContent.member.roles.cache.has('849980919573512212')) {
+        if (messageContent.member.author.roles.cache.has('849980919573512212')) {
             return;
     
         }
